@@ -10,3 +10,5 @@ syntaxe kódu
 syntaxe vhdl kódu
 
 ```
+
+*italic*, _underscores_, 
