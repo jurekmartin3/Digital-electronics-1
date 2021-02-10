@@ -23,3 +23,8 @@ syntaxe vhdl kódu
 3. Test item
 ⋅⋅1. Subitem
 
+Tabulka | Tabulka
+------------ | -------------
+1 | 2
+3 | 4
+
