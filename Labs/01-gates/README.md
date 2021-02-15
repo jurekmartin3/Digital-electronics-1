@@ -2,18 +2,8 @@
     
     https://github.com/jurekmartin3/Digital-electronics-1
 2. Verification of De Morgan's laws of function f(c,b,a).
-| **c** | **b** |**a** | **f(c,b,a)** |
-| :-: | :-: | :-: | :-: |
-| 0 | 0 | 0 | 1 |
-| 0 | 0 | 1 | 1 |
-| 0 | 1 | 0 | 0 |
-| 0 | 1 | 1 | 0 |
-| 1 | 0 | 0 | 0 |
-| 1 | 0 | 1 | 1 |
-| 1 | 1 | 0 | 0 |
-| 1 | 1 | 1 | 0 |
-    - VHDL code of *design.hdl*
 
+    - VHDL code of *design.hdl*
 
 ```vhdl
 ------------------------------------------------------------------------
@@ -55,9 +45,18 @@ begin
 
 end architecture dataflow;
 
-
-
 ```
+
+| **c** | **b** |**a** | **f(c,b,a)** |
+| :-: | :-: | :-: | :-: |
+| 0 | 0 | 0 | 1 |
+| 0 | 0 | 1 | 1 |
+| 0 | 1 | 0 | 0 |
+| 0 | 1 | 1 | 0 |
+| 1 | 0 | 0 | 0 |
+| 1 | 0 | 1 | 1 |
+| 1 | 1 | 0 | 0 |
+| 1 | 1 | 1 | 0 |
 
 - Screenshot with simulated time waveforms
 ![Screenshot EDA Playground - De Morgan's Law](Images/DeMorgan.png)
