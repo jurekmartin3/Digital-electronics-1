@@ -48,4 +48,4 @@ end architecture dataflow;
 
 ```
 
-![Screenshot od EDA Playground](Images/DeMorgans Law.png)
+![Screenshot od EDA Playground](Images/'DeMorgans Law.png)
