@@ -46,7 +46,7 @@ end architecture dataflow;
 
 ```
 
-    - Screenshot with simulated time waveforms
+- Screenshot with simulated time waveforms
 ![Screenshot EDA Playground - De Morgan's Law](Images/DeMorgan.png)
 
 [Link to EDA Playground – Verification of De Morgan's laws](https://www.edaplayground.com/x/7yEe)
@@ -98,7 +98,7 @@ begin
 end architecture dataflow;
 
 ```
-    - Screenshot with simulated time waveforms
+- Screenshot with simulated time waveforms
 ![Screenshot EDA Playground - Distributive Laws](Images/Distributive.png)
 
 [Link to EDA Playground – Verification of Distributive laws](https://www.edaplayground.com/x/8PUv)
