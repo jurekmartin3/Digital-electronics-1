@@ -46,13 +46,14 @@ end architecture dataflow;
 
 ```
 
+    - Screenshot with simulated time waveforms
 ![Screenshot EDA Playground - De Morgan's Law](Images/DeMorgan.png)
 
 [Link to EDA Playground – Verification of De Morgan's laws](https://www.edaplayground.com/x/7yEe)
 
 3. Verification of Distributive laws.
 
-VHDL code of *design.hdl*
+    - VHDL code of *design.hdl*
 
 ```vhdl
 ------------------------------------------------------------------------
@@ -97,7 +98,7 @@ begin
 end architecture dataflow;
 
 ```
-
+    - Screenshot with simulated time waveforms
 ![Screenshot EDA Playground - Distributive Laws](Images/Distributive.png)
 
 [Link to EDA Playground – Verification of Distributive laws](https://www.edaplayground.com/x/8PUv)
