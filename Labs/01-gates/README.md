@@ -1,4 +1,5 @@
 1. [GitHub link to repository:](https://github.com/jurekmartin3/Digital-electronics-1)
+    
     https://github.com/jurekmartin3/Digital-electronics-1
 2. Verification of De Morgan's laws of function f(c,b,a).
 
@@ -53,6 +54,7 @@ end architecture dataflow;
 ![Screenshot EDA Playground - De Morgan's Law](Images/DeMorgan.png)
 
 [Link to EDA Playground – Verification of De Morgan's laws](https://www.edaplayground.com/x/7yEe)
+    
     https://www.edaplayground.com/x/7yEe
 
 3. Verification of Distributive laws.
@@ -106,4 +108,5 @@ end architecture dataflow;
 ![Screenshot EDA Playground - Distributive Laws](Images/Distributive.png)
 
 [Link to EDA Playground – Verification of Distributive laws](https://www.edaplayground.com/x/8PUv)
+    
     https://www.edaplayground.com/x/8PUv
