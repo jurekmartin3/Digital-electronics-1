@@ -49,3 +49,5 @@ end architecture dataflow;
 ```
 
 ![Screenshot od EDA Playground](Images/DeMorgan.png)
+
+[Link to EDA Playground – Verification of De Morgan's laws](https://www.edaplayground.com/x/7yEe)
