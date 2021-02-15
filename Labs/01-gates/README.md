@@ -101,6 +101,6 @@ end architecture dataflow;
 
 ```
 - Screenshot with simulated time waveforms
-![Screenshot EDA Playground - Distributive Laws](Images/Distributive.png)
+![Screenshot EDA Playground - Distributive Laws](Images/DistributiveLaw.png)
 
 [Link to EDA Playground – Verification of Distributive laws](https://www.edaplayground.com/x/8PUv)
