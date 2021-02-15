@@ -49,7 +49,7 @@ end architecture dataflow;
 ```
 
 - Screenshot with simulated time waveforms
-![Screenshot EDA Playground - De Morgan's Law](Images/DeMorgan.png)
+![Screenshot EDA Playground - De Morgan's Law](Images/DeMorgan1.png)
 
 [Link to EDA Playground – Verification of De Morgan's laws](https://www.edaplayground.com/x/7yEe)
 
