@@ -1,15 +1,10 @@
 1. Preparation tasks.
    *Connection of 16 slide switches and 16 LEDs on Nexys A7 board.*
 
-   
-   Schematics of 16 switches:  
-   
-   ![Slide switches](Images/slide-switches.png)
-   
-   Schematics of 16 LEDs: 
+   ![Slide switches and LEDs](Images/slide-switches.png)
    
    
-   ![LED schematics](Images/LED.png)
+   
    
 2. Two-bit wide 4-to-1 multiplexer.
    Listing of VHDL architecture from source file `mux_2bit_4to1.vhd `:
