@@ -1,10 +1,14 @@
 1. Preparation tasks.
    *Connection of 16 slide switches and 16 LEDs on Nexys A7 board.*
-Schematics of 16 switches:  
+
+   
+   Schematics of 16 switches:  
    
    ![Slide switches](Images/slide-switches.png)
    
    Schematics of 16 LEDs: 
+   
+   
    ![LED schematics](Images/LED.png)
    
 2. Two-bit wide 4-to-1 multiplexer.
@@ -67,6 +71,13 @@ Schematics of 16 switches:
         wait;
     end process p_stimulus;
    ```
+
+
+   Screenshot with simulated time waveforms
+
+   ![Simulation](Images/mux_2bit_4to1_simulation.png)
+
+   
 
 3. A Vivado tutorial. 
 
