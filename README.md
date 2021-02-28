@@ -1,6 +1,6 @@
 # Digital-electronics-1
 
-##nadpis druhé úrovně
+## nadpis druhé úrovně
 
 ```
 syntaxe kódu
@@ -17,11 +17,13 @@ syntaxe vhdl kódu
 
 [Odkaz](https://www.google.com)
 
-1. Ukázka: List
+## List:
+
+1. Item 1
 2. Another item
-⋅⋅* Unordered sub-list. 
+⋅⋅ *Unordered sub-list.*
 3. Test item
-⋅⋅1. Subitem
+⋅⋅ 1. Subitem
 
 Tabulka | Tabulka
 ------------ | -------------
