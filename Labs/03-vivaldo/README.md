@@ -5,7 +5,6 @@
    
    
    
-   
 2. Two-bit wide 4-to-1 multiplexer.
    Listing of VHDL architecture from source file `mux_2bit_4to1.vhd `:
 
@@ -76,22 +75,30 @@
 
 3. A Vivado tutorial. 
 
-   Creating a new project (File - New project):
+   *Creating a new project*
+
+   **File – New project:**
 
    ![Creating a new project](Images/vivaldo_new-project.png)
 
    Then chose Project type *RTL project*. 
 
-   Add source (Create File) and finish the creating process:
+   **Add source** (Create File) and **finish** the creating process:
 
    ![Add source while creating a new project](Images/vivaldo_add-source.png)
 
-   Create testbench:
+   *Create testbench file:*
 
-   ​	File - Add sources - Add or create simulation sources - Create File
+   ​	**File – Add sources – Add or create simulation sources – Create File**
 
    ![Configuring testbench](Images/vivaldo_add-testbench.png)
 
-   Run simulation:
-
+   *Run simulation:*
+   
    ![Runnig the simulation](Images/vivaldo_run-simulation.png)
+   
+   *Adding XDC constraints file:*
+
+![add-constraints](Images/vivaldo_add-constraints.png)
+
+![create-constraints](Images/vivaldo_create-constraints.png)
