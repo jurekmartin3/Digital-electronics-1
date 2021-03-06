@@ -79,7 +79,7 @@
                 seg_o <= "0111000";     -- F
         end case;
     	end process p_7seg_decoder;
-    end architecture behavioral;
+    end architecture Behavioral;
     ```
     
     * Listing of VHDL stimulus process from testbench file `tb_hex_7seg.vhd` with syntax highlighting and asserts:
