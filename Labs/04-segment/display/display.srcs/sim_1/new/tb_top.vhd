@@ -65,6 +65,7 @@ uut_top : entity work.top
 
 p_stimulus : process
     begin
+    s_SW <= "0000"; wait for 100ns;
     s_SW <= "0001"; wait for 100ns;
     s_SW <= "0010"; wait for 100ns;
     s_SW <= "0011"; wait for 100ns;

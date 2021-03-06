@@ -153,3 +153,5 @@
     |  F   |  1111   |  0   |  1   |  1   |  0   |
     
     * Screenshot with simulated time waveforms:
+
+![Simulation](Images/Simulation_02.png)
