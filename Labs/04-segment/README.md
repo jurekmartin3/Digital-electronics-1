@@ -152,4 +152,4 @@
     |  E   |  1110   |  0   |  1   |  0   |  0   |
     |  F   |  1111   |  0   |  1   |  1   |  0   |
     
-    * Screenshot with simulated time waveforms; always display all inputs and outputs.
+    * Screenshot with simulated time waveforms:
