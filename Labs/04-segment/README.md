@@ -112,7 +112,7 @@
     ```
     * Screenshot with simulated time waveforms:
     
-    ![Simulation](Images/Simulation_01.png)
+    ![Simulation](Images/Simulation_1.png)
     
     * Listing of VHDL code from source file `top.vhd` with 7-segment module instantiation:
     
