@@ -72,10 +72,13 @@ begin
         s_reset <= '0';
         wait for 12 ns;
         
+            assert (s_reset = '0')
+            -- If false, then report an error
+            report "Test failed for input on 12ns" severity error;
+        
         -- Reset activated
         s_reset <= '1';
         wait for 73 ns;
-
         s_reset <= '0';
         wait;
     end process p_reset_gen;
@@ -92,9 +95,25 @@ begin
         
         -- Change counter direction
         s_cnt_up <= '1';
-        wait for 380 ns;
+        wait for 230 ns;
+            -- Expected output
+            assert (s_cnt = "01111")
+            -- If false, then report an error
+            report "Test failed for input on 230ns" severity error;
+        
+        wait for 10 ns;
+             -- Expected output
+            assert (s_cnt = "10000")
+            -- If false, then report an error
+            report "Test failed for input on 240ns" severity error;
+        
         s_cnt_up <= '0';
         wait for 220 ns;
+        
+         -- Expected output
+        assert (s_cnt = "11010")
+        -- If false, then report an error
+        report "Test failed for input on 460ns" severity error;
 
         -- Disable counting
         s_en     <= '0';

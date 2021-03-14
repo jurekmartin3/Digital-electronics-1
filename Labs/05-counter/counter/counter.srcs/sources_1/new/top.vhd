@@ -106,5 +106,5 @@ begin
 
     -- Connect one common anode to 3.3V
     AN <= b"1111_1110";
-
+    
 end architecture Behavioral;
