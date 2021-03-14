@@ -56,10 +56,11 @@ p_reset_gen : process
     begin
         s_reset <= '0';
         wait for 12 ns;
-        	-- Expected output
+        
             assert (s_reset = '0')
             -- If false, then report an error
-            report "Test failed for input on 12ns for s_reset" severity error;
+            report "Test failed for input on 12ns for reset" severity error;
+        
         -- Reset activated
         s_reset <= '1';
         wait for 73 ns;
@@ -79,25 +80,25 @@ p_reset_gen : process
         
         -- Change counter direction
         s_cnt_up <= '1';
-        wait for 230 ns;
+        wait for 220 ns;
             -- Expected output
-            assert (s_cnt = "01111")
+            assert (s_cnt = "1110")
             -- If false, then report an error
-            report "Test failed for input on 230ns" severity error;
+            report "Test failed for input on 220ns" severity error;
         
         wait for 10 ns;
              -- Expected output
-            assert (s_cnt = "10000")
+            assert (s_cnt = "1111")
             -- If false, then report an error
-            report "Test failed for input on 240ns" severity error;
+            report "Test failed for input on 230ns" severity error;
         
         s_cnt_up <= '0';
         wait for 220 ns;
         
          -- Expected output
-        assert (s_cnt = "11010")
+        assert (s_cnt = "1001")
         -- If false, then report an error
-        report "Test failed for input on 460ns" severity error;
+        report "Test failed for input on 450ns" severity error;
 
         -- Disable counting
         s_en     <= '0';
@@ -111,11 +112,7 @@ p_reset_gen : process
 
 * Screenshot with simulated time waveforms: 
 
-![Simulation_up_down_part1](Images/Simulation1.png)
-
-
-
-![Simulation_up_down_part2](Images/Simulation2.png)
+![Simulation_up_down_part1](Images/Simulation.png)
 
 
 
@@ -126,7 +123,7 @@ p_reset_gen : process
 -- Instance (copy) of clock_enable entity
     clk_en0 : entity work.clock_enable
         generic map(
-            g_MAX => 10000000
+            g_MAX => 100000000
         )
         port map(
             clk => CLK100MHZ,
