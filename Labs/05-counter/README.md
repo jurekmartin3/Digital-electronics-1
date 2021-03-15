@@ -2,13 +2,13 @@
 
 * Figure or table with connection of push buttons on Nexys A7 board:
 
-| **Button** | **Connection** |
-| :----: | :----: |
-| BTNL | P17 |
-| BTNR | M17 |
-| BTNU | M18 |
-| BTND | P18 |
-| BTNC | N17 |
+| **Button** | **Connection** |**Not pressed** | **Pressed** |
+| :----: | :----: | :----: | :----: |
+| BTNL | P17 | Low voltage | High voltage |
+| BTNR | M17 | Low voltage | High voltage |
+| BTNU | M18 | Low voltage | High voltage |
+| BTND | P18 | Low voltage | High voltage |
+| BTNC | N17 | Low voltage | High voltage |
 
 * Table with calculated values:
 
