@@ -26,7 +26,7 @@ Due to the physiological properties of human vision, it is necessary that the ti
       {name: 'CD', wave: 'xx01.0.1.0.1'},
       {name: 'CE', wave: 'xx1..01..01.'},
       {name: 'CF', wave: 'xx1.01..01..'},
-      {name: 'CG', wave: 'xx010..10...'},
+      {name: 'CG', wave: 'xx010..10..1'},
     ],
     {name: 'Decimal point: DP', wave: 'xx01..01..01'},
   ],
