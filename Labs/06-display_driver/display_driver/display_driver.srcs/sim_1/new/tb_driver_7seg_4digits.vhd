@@ -28,8 +28,7 @@ architecture testbench of tb_driver_7seg_4digits is
     constant c_CLK_100MHZ_PERIOD : time    := 10 ns;
 
     --Local signals
-    signal s_clk_100MHz   : std_logic;
-    signal s_clk          : std_logic;   
+    signal s_clk_100MHz   : std_logic; 
     signal s_reset        : std_logic;
     signal s_data0_i      : std_logic_vector(4 - 1 downto 0);
     signal s_data1_i      : std_logic_vector(4 - 1 downto 0);
@@ -39,8 +38,7 @@ architecture testbench of tb_driver_7seg_4digits is
 
     signal s_dp_o         : std_logic;   
     
-    signal s_seg_o        : std_logic_vector(7 - 1 downto 0);  
-
+    signal s_seg_o        : std_logic_vector(7 - 1 downto 0);
     signal s_dig_o        :std_logic_vector(4 - 1 downto 0);   
 
 begin
@@ -103,12 +101,27 @@ begin
         s_data0_i <= "0010";
         s_dp_i    <= "0111"; 
         
+        
         wait for 600 ns;
         
-        s_data3_i <= "0000";
+        s_data3_i <= "0010";
+        s_data2_i <= "0100";   
+        s_data1_i <= "0001";
+        s_data0_i <= "0011";
+        s_dp_i    <= "1110"; 
+        
+        -- Expected output
+        assert (s_seg_o = "0000110")
+        -- If false, then report an error
+        report "Test failed for input on 600 ns" severity error;
+        
+        wait for 225 ns;
+        
+        s_data3_i <= "0011";
         s_data2_i <= "0001";   
-        s_data1_i <= "0000";
-        s_data0_i <= "0001";
+        s_data1_i <= "0100";
+        s_data0_i <= "0010";
+        s_dp_i    <= "0111"; 
 
         report "Stimulus process finished" severity note;
         wait;

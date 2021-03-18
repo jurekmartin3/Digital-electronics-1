@@ -32,7 +32,8 @@ use IEEE.STD_LOGIC_1164.ALL;
 --use UNISIM.VComponents.all;
 
 entity top is
-    Port ( CLK100MHZ : in STD_LOGIC;
+    Port ( 
+           CLK100MHZ : in STD_LOGIC;
            BTNC : in STD_LOGIC;
            SW : in STD_LOGIC_VECTOR (16 - 1 downto 0);
            CA : out STD_LOGIC;
@@ -43,7 +44,8 @@ entity top is
            CF : out STD_LOGIC;
            CG : out STD_LOGIC;
            DP : out STD_LOGIC;
-           AN : out STD_LOGIC_VECTOR (8 - 1 downto 0));
+           AN : out STD_LOGIC_VECTOR (8 - 1 downto 0)
+     );
 end top;
 
 ------------------------------------------------------------------------
