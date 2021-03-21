@@ -35,12 +35,11 @@
 ```
 
 
-
 2. Display driver. Submit:
-    * Listing of VHDL code of the process `p_mux` with syntax highlighting:
+    * Listing of VHDL code of the process `p_mux` with syntax highlighting: 
+
     
-    
-   ```vhdl 
+```vhdl 
 p_mux : process(s_cnt, data0_i, data1_i, data2_i, data3_i, dp_i)
         begin
             case s_cnt is
@@ -62,15 +61,14 @@ p_mux : process(s_cnt, data0_i, data1_i, data2_i, data3_i, dp_i)
                     dig_o <= "1101";
             end case;
         end process p_mux;
-   ```
-   
+```
+
    
     * [Listing of VHDL testbench file](https://github.com/jurekmartin3/Digital-electronics-1/blob/main/Labs/06-display_driver/display_driver/display_driver.srcs/sim_1/new/tb_driver_7seg_4digits.vhd) `tb_driver_7seg_4digits` with syntax highlighting and asserts:
+
+
    
-   
-   
-   
-   ```vhdl
+```vhdl
    library ieee;
    use ieee.std_logic_1164.all;
    
@@ -189,7 +187,7 @@ p_mux : process(s_cnt, data0_i, data1_i, data2_i, data3_i, dp_i)
        end process p_stimulus;
    
    end architecture testbench;
-   ```
+```
    
    
     * Screenshot with simulated time waveforms; always display all inputs and outputs:
