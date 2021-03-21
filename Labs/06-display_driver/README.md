@@ -62,7 +62,8 @@ p_mux : process(s_cnt, data0_i, data1_i, data2_i, data3_i, dp_i)
             end case;
         end process p_mux;
 ```
-    [Listing of VHDL testbench file](https://github.com/jurekmartin3/Digital-electronics-1/blob/main/Labs/06-display_driver/display_driver/display_driver.srcs/sim_1/new/tb_driver_7seg_4digits.vhd) `tb_driver_7seg_4digits` with syntax highlighting and asserts:
+    
+*[Listing of VHDL testbench file](https://github.com/jurekmartin3/Digital-electronics-1/blob/main/Labs/06-display_driver/display_driver/display_driver.srcs/sim_1/new/tb_driver_7seg_4digits.vhd) `tb_driver_7seg_4digits` with syntax highlighting and asserts:
 
    
 ```vhdl
