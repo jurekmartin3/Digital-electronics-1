@@ -252,4 +252,4 @@ end architecture Behavioral;
 
 * Image of the driver schematic. The image can be drawn on a computer or by hand: 
 
-![Driver schematic](Images/driver_8dig.png)
+![Driver schematic](Images/Driver_8Dig.png)
