@@ -62,10 +62,10 @@ p_mux : process(s_cnt, data0_i, data1_i, data2_i, data3_i, dp_i)
             end case;
         end process p_mux;
 ```
-    
+
 *[Listing of VHDL testbench file](https://github.com/jurekmartin3/Digital-electronics-1/blob/main/Labs/06-display_driver/display_driver/display_driver.srcs/sim_1/new/tb_driver_7seg_4digits.vhd) `tb_driver_7seg_4digits` with syntax highlighting and asserts:
 
-   
+
 ```vhdl
    library ieee;
    use ieee.std_logic_1164.all;
@@ -186,15 +186,15 @@ p_mux : process(s_cnt, data0_i, data1_i, data2_i, data3_i, dp_i)
    
    end architecture testbench;
 ```
-   
-   
+
+
     * Screenshot with simulated time waveforms; always display all inputs and outputs:
-   
+
    ![Simulation](Images/simulation.png)
+
    
-   
-   
-   
+
+
     * Listing of VHDL architecture of the top layer:
 
 ```vhdl
@@ -252,4 +252,4 @@ end architecture Behavioral;
 
 * Image of the driver schematic. The image can be drawn on a computer or by hand: 
 
-![Driver schematic](Images/Driver_8Dig.png)
+![Driver schematic](Images/driver_8dig.png)
