@@ -692,3 +692,4 @@ p_clk_gen : process
 4. Shift register. Submit:
    
    * Image of the shift register schematic. The image can be drawn on a computer or by hand. Name all inputs, outputs, components and internal signals.
+![shift register](Images/shift_register.png)
