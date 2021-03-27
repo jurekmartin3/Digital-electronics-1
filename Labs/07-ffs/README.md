@@ -33,7 +33,11 @@
 
 
 2. D latch. Submit:
+<<<<<<< HEAD
   * VHDL code listing of the process `p_d_latch` with syntax highlighting:
+=======
+	* VHDL code listing of the process `p_d_latch` with syntax highlighting:
+>>>>>>> d79cf781859f4511ce70c7de40d1c5c0df2864bc
 ```vhdl
 p_d_latch : process (d, arst, en)
     begin
@@ -170,7 +174,11 @@ p_reset_gen : process
 ![d_latch](Images/d_latch.png)
 3. Flip-flops. Submit:
 
+<<<<<<< HEAD
   * VHDL code listing of the processes `p_d_ff_arst`, `p_d_ff_rst`, `p_jk_ff_rst`, `p_t_ff_rst` with syntax highlighting:
+=======
+	* VHDL code listing of the processes `p_d_ff_arst`, `p_d_ff_rst`, `p_jk_ff_rst`, `p_t_ff_rst` with syntax highlighting:
+>>>>>>> d79cf781859f4511ce70c7de40d1c5c0df2864bc
 
 `p_d_ff_arst`
 ```vhdl
