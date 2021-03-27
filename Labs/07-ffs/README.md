@@ -1,6 +1,6 @@
 1. Preparation task: Characteristic equations and completed tables for D, JK, T flip-flops
 
-![equations](Images/eq_flip_flops.png)
+![equations](Images/eq_flip-flops.png)
 
 | **clk** | **d** | **q(n)** | **q(n+1)** | **Comments** |
 | :-: | :-: | :-: | :-: | :-- |
