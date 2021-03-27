@@ -1,10 +1,6 @@
 1. Preparation task: Characteristic equations and completed tables for D, JK, T flip-flops
 
-\begin{align*}
-    q_{n+1}^D =&~ \\
-    q_{n+1}^{JK} =&\\
-    q_{n+1}^T =&\\
-\end{align*}
+![equations](Images/eq_flip_flops.png)
 
 | **clk** | **d** | **q(n)** | **q(n+1)** | **Comments** |
 | :-: | :-: | :-: | :-: | :-- |
