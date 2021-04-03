@@ -24,20 +24,21 @@ use ieee.numeric_std.all;
 ------------------------------------------------------------------------
 -- Entity declaration for traffic light controller
 ------------------------------------------------------------------------
-entity tlc is
+entity tlcsmart is
     port(
         clk     : in  std_logic;
         reset   : in  std_logic;
+        sensor  : in std_logic_vector(2 - 1 downto 0);
         -- Traffic lights (RGB LEDs) for two directions
         south_o : out std_logic_vector(3 - 1 downto 0);
         west_o  : out std_logic_vector(3 - 1 downto 0)
     );
-end entity tlc;
+end entity tlcsmart;
 
 ------------------------------------------------------------------------
 -- Architecture declaration for traffic light controller
 ------------------------------------------------------------------------
-architecture Behavioral of tlc is
+architecture Behavioral of tlcsmart is
 
     -- Define the states
     type   t_state is (STOP1, WEST_GO,  WEST_WAIT,
@@ -100,10 +101,17 @@ begin
                         if (s_cnt < c_DELAY_1SEC) then
                             s_cnt <= s_cnt + 1;
                         else
-                            -- Move to the next state
-                            s_state <= WEST_GO;
-                            -- Reset local counter value
-                            s_cnt   <= c_ZERO;
+                            if (sensor = "10") then
+                                -- Skip to the SOUTH_GO state
+                                s_state <= SOUTH_GO;
+                                -- Reset local counter value
+                                s_cnt   <= c_ZERO;
+                            else
+                                -- Move to the next state
+                                s_state <= WEST_GO;
+                                -- Reset local counter value
+                                s_cnt   <= c_ZERO;
+                            end if;
                         end if;
 
                     when WEST_GO =>
@@ -111,12 +119,19 @@ begin
                         if (s_cnt < c_DELAY_4SEC) then
                             s_cnt <= s_cnt + 1;
                         else
-                            -- Move to the next state
-                            s_state <= WEST_WAIT;
-                            -- Reset local counter value
-                            s_cnt   <= c_ZERO;
+                            if (sensor = "00" or sensor = "01") then
+                                -- Stay on the same state
+                                s_state <= WEST_GO;
+                                -- Reset local counter value
+                                s_cnt   <= c_ZERO;
+                            else
+                                -- Move to the next state
+                                s_state <= WEST_WAIT;
+                                -- Reset local counter value
+                                s_cnt   <= c_ZERO;
+                            end if;
                         end if;
-                    
+
                     when WEST_WAIT =>
                         -- Count up to c_DELAY_1SEC
                         if (s_cnt < c_DELAY_2SEC) then
@@ -144,13 +159,20 @@ begin
                         if (s_cnt < c_DELAY_4SEC) then
                             s_cnt <= s_cnt + 1;
                         else
-                            -- Move to the next state
-                            s_state <= SOUTH_WAIT;
-                            -- Reset local counter value
-                            s_cnt   <= c_ZERO;
+                            if (sensor = "01") then
+                                -- Skip to the WEST_GO state
+                                s_state <= WEST_GO;
+                                -- Reset local counter value
+                                s_cnt   <= c_ZERO;
+                            else
+                                -- Move to the next state
+                                s_state <= SOUTH_GO;
+                                -- Reset local counter value
+                                s_cnt   <= c_ZERO;
+                            end if;
                         end if;
                         
-                    when SOUTH_WAIT =>
+                     when SOUTH_WAIT =>
                         -- Count up to c_DELAY_1SEC
                         if (s_cnt < c_DELAY_2SEC) then
                             s_cnt <= s_cnt + 1;
@@ -159,13 +181,9 @@ begin
                             s_state <= STOP1;
                             -- Reset local counter value
                             s_cnt   <= c_ZERO;
-                        end if;
-                    
-                    -- It is a good programming practice to use the 
-                    -- OTHERS clause, even if all CASE choices have 
-                    -- been made. 
-                    when others =>
-                        s_state <= STOP1;
+                        end if; 
+                      when others =>
+                          s_state <= STOP1;
 
                 end case;
             end if; -- Synchronous reset
