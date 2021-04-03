@@ -243,6 +243,7 @@ p_traffic_fsm : process(clk)
     * State diagram
 
 ![Diagram tlc-smart](Images/Diagram-smart.png)
+
     * Listing of VHDL code of sequential process `p_smart_traffic_fsm` with syntax highlighting:
 ```vhdl
 p_traffic_fsm : process(clk)
