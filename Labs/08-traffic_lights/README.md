@@ -202,10 +202,10 @@ p_traffic_fsm : process(clk)
         <td class="tg-0pky">red</td>
         <td class="tg-0pky">yellow</td>
         <td class="tg-0pky">2 sec</td>
-        <td class="tg-0pky">SOUTH_GO</td>
-        <td class="tg-0pky">SOUTH_GO</td>
-        <td class="tg-0pky">SOUTH_GO</td>
-        <td class="tg-0pky">SOUTH_GO</td>
+        <td class="tg-0pky">STOP2</td>
+        <td class="tg-0pky">STOP2</td>
+        <td class="tg-0pky">STOP2</td>
+        <td class="tg-0pky">STOP2</td>
       </tr>
       <tr>
         <td class="tg-0pky">STOP2</td>
@@ -232,10 +232,10 @@ p_traffic_fsm : process(clk)
         <td class="tg-0pky">yellow</td>
         <td class="tg-0pky">red</td>
         <td class="tg-0pky">2 sec</td>
-        <td class="tg-0pky">WEST_GO</td>
-        <td class="tg-0pky">WEST_GO</td>
-        <td class="tg-0pky">WEST_GO</td>
-        <td class="tg-0pky">WEST_GO</td>
+        <td class="tg-0pky">STOP1</td>
+        <td class="tg-0pky">STOP1</td>
+        <td class="tg-0pky">STOP1</td>
+        <td class="tg-0pky">STOP1</td>
       </tr>
     </tbody>
     </table>
@@ -244,9 +244,9 @@ p_traffic_fsm : process(clk)
 
 ![Diagram tlc-smart](Images/Diagram-smart.png)
 
-    * Listing of VHDL code of sequential process `p_smart_traffic_fsm` with syntax highlighting:
+   * Listing of VHDL code of sequential process `p_smart_traffic_fsm` with syntax highlighting:
 ```vhdl
-p_traffic_fsm : process(clk)
+p_smart_traffic_fsm : process(clk)
     begin
         if rising_edge(clk) then
             if (reset = '1') then       -- Synchronous reset
@@ -313,10 +313,16 @@ p_traffic_fsm : process(clk)
                         if (s_cnt < c_DELAY_1SEC) then
                             s_cnt <= s_cnt + 1;
                         else
-                            -- Move to the next state
-                            s_state <= SOUTH_GO;
-                            -- Reset local counter value
-                            s_cnt   <= c_ZERO;
+                            if (sensor = "01") then
+                                s_state <= WEST_GO;
+                                -- Reset local counter value
+                                s_cnt   <= c_ZERO;
+                            else
+                                -- Move to the next state
+                                s_state <= SOUTH_GO;
+                                -- Reset local counter value
+                                s_cnt   <= c_ZERO;
+                            end if;
                         end if;
                         
                     when SOUTH_GO =>
@@ -324,14 +330,13 @@ p_traffic_fsm : process(clk)
                         if (s_cnt < c_DELAY_4SEC) then
                             s_cnt <= s_cnt + 1;
                         else
-                            if (sensor = "01") then
-                                -- Skip to the WEST_GO state
-                                s_state <= WEST_GO;
+                            if (sensor = "00" or sensor = "10") then
+                                s_state <= SOUTH_GO;
                                 -- Reset local counter value
                                 s_cnt   <= c_ZERO;
                             else
                                 -- Move to the next state
-                                s_state <= SOUTH_GO;
+                                s_state <= SOUTH_WAIT;
                                 -- Reset local counter value
                                 s_cnt   <= c_ZERO;
                             end if;
@@ -353,5 +358,5 @@ p_traffic_fsm : process(clk)
                 end case;
             end if; -- Synchronous reset
         end if; -- Rising edge
-    end process p_traffic_fsm;
+    end process p_smart_traffic_fsm;
 ```

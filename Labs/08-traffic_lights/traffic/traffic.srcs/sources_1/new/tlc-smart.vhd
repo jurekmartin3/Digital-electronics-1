@@ -81,7 +81,7 @@ begin
     -- The sequential process with synchronous reset and clock_enable 
     -- entirely controls the s_state signal by CASE statement.
     --------------------------------------------------------------------
-    p_traffic_fsm : process(clk)
+    p_smart_traffic_fsm : process(clk)
     begin
         if rising_edge(clk) then
             if (reset = '1') then       -- Synchronous reset
@@ -148,10 +148,16 @@ begin
                         if (s_cnt < c_DELAY_1SEC) then
                             s_cnt <= s_cnt + 1;
                         else
-                            -- Move to the next state
-                            s_state <= SOUTH_GO;
-                            -- Reset local counter value
-                            s_cnt   <= c_ZERO;
+                            if (sensor = "01") then
+                                s_state <= WEST_GO;
+                                -- Reset local counter value
+                                s_cnt   <= c_ZERO;
+                            else
+                                -- Move to the next state
+                                s_state <= SOUTH_GO;
+                                -- Reset local counter value
+                                s_cnt   <= c_ZERO;
+                            end if;
                         end if;
                         
                     when SOUTH_GO =>
@@ -159,14 +165,13 @@ begin
                         if (s_cnt < c_DELAY_4SEC) then
                             s_cnt <= s_cnt + 1;
                         else
-                            if (sensor = "01") then
-                                -- Skip to the WEST_GO state
-                                s_state <= WEST_GO;
+                            if (sensor = "00" or sensor = "10") then
+                                s_state <= SOUTH_GO;
                                 -- Reset local counter value
                                 s_cnt   <= c_ZERO;
                             else
                                 -- Move to the next state
-                                s_state <= SOUTH_GO;
+                                s_state <= SOUTH_WAIT;
                                 -- Reset local counter value
                                 s_cnt   <= c_ZERO;
                             end if;
@@ -188,7 +193,7 @@ begin
                 end case;
             end if; -- Synchronous reset
         end if; -- Rising edge
-    end process p_traffic_fsm;
+    end process p_smart_traffic_fsm;
 
     --------------------------------------------------------------------
     -- p_output_fsm:
