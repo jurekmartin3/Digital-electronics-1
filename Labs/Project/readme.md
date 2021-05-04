@@ -13,9 +13,7 @@ Jurek Martin, Kadlec Jiří, Kislerová Helena, Kovaříková Hana, Kratochvil T
 - Jako vývojovou desku jsme zvolili Arty A7-100T.  
 - Využili jsme porty ck_io0-ck_io11 jako vstup a porty ja0-ja6, jb0-jb6, jc0-jc6, jd0-jd6 a ck_io12 jako výstup.
 
-<img src="Images/board.jpg" alt="deska" style="zoom: 33%;" />
-
-
+<img src="Images/board.jpg" alt="deska" style="zoom:33%;" />
 
 
 
@@ -112,9 +110,10 @@ Relé :
 
 ## VHDL moduly
 ### Princip `relay_control`
+[Link `relay_control`](https://github.com/Krakenuz/Digital-electronics-1-Project/blob/main/Door%20lock%20system/Door%20lock%20system.srcs/sources_1/new/relay_control.vhd)
 - Tento modul slouží k ověření zadaného hesla.Pokud zadané heslo souhlasí, sepne se relé a otevře se zámek.
 ```vhdl 
-	--Relay Control
+    --Relay Control
     --Activates the relay if displayed numbers on numbers = PASSCODE
     if (s_internal2_Display_1 = s_internal2_Passcode_1 and s_internal2_Display_2 = s_internal2_Passcode_2 and s_internal2_Display_3 = s_internal2_Passcode_3 and s_internal2_Display_4 = s_internal2_Passcode_4) then
                Relay_o <= '1';
@@ -124,10 +123,11 @@ Relé :
 ```
 
 ### Princip `hex_7seg`
+[Link `hex_7seg`](https://github.com/Krakenuz/Digital-electronics-1-Project/blob/main/Door%20lock%20system/Door%20lock%20system.srcs/sources_1/new/hex_7seg.vhd)
 - Modul hex_7seg je rozšířená verze modulu stejného jména, jež byl součástí několika laboratorních cvičení, viz reference. Slouží k překladu čtyřbitového binárního kódu na sedmibitový binární kód, jehož jedničky představují sepnuté segmenty displeje.
 ```vhdl
-	-- Translates binary signal (0000 = number 0) to input for 7segment display   
-	case s_internal2_Display_1 is
+    -- Translates binary signal (0000 = number 0) to input for 7segment display   
+    case s_internal2_Display_1 is
             when "0000" =>
                 seg_o <= "0000001";     --0
             when "0001" =>
@@ -269,15 +269,17 @@ Relé :
 ```
 
 ### Architektura a porty `door_lock_system`
+[Link `door_lock_system`](https://github.com/Krakenuz/Digital-electronics-1-Project/blob/main/Door%20lock%20system/Door%20lock%20system.srcs/sources_1/new/door_lock_system.vhd)
 - door_lock_system je v podstatě jenom spojení modulů display_control, relay_control a hex7seg. Tento modul byl vytvořen za účelem otestování korektnosti funčnosti všech třech modulů dohromady jako systému.
 
 ### Princip `display_control`
+[Link `display_control`](https://github.com/Krakenuz/Digital-electronics-1-Project/blob/main/Door%20lock%20system/Door%20lock%20system.srcs/sources_1/new/display_control.vhd)
 - Modul display_control představuje hlavní část programu. Vstupují do něj tlačítka, kterým je v tomto modulu přiřazena 4 bitová hodnota zobrazovaného znaku na displeji. Při každém zmáčknutí tlačítka se zvyšuje hodnota vnitřní proměnné s_cnt, pomocí čehož je dosaženo postupné zadávání hodnot do displejů 1-4. Při zmáčknutí tlačítka Button_RESET_i, nebo při uplynutí časového intervalu, při kterém jsou tlačítka neaktivní a displeje konstantní, se displeje vynulují. Pokud je zámek spuštěn poprvé, bez dříve nastaveného hesla, první zadání celého hesla na displej a následné potvrzení tlačítkem Button_SET_i heslo nastaví. Změna hesla může být provedena pouze tehdy, pokud zadáme správně aktiální heslo a následně ho potvrdíme tlačítkem Button_SET_i. Po každém nastavení se displej vynuluje.
 ```vhdl
-		
-	p_display_control: process(clk,Button_0_i,Button_1_i,Button_2_i,Button_3_i,Button_4_i,Button_5_i,Button_6_i,Button_7_i,Button_8_i,Button_9_i,Button_RESET_i,Button_SET_i,s_cnt,s_Buttons,display_time,s_reset_cnt)
+        
+    p_display_control: process(clk,Button_0_i,Button_1_i,Button_2_i,Button_3_i,Button_4_i,Button_5_i,Button_6_i,Button_7_i,Button_8_i,Button_9_i,Button_RESET_i,Button_SET_i,s_cnt,s_Buttons,display_time,s_reset_cnt)
 begin 
-	 --Transform inputs of buttons to 1 vector
+     --Transform inputs of buttons to 1 vector
     s_Buttons(0) <= Button_0_i;
     s_Buttons(1) <= Button_1_i;
     s_Buttons(2) <= Button_2_i;
@@ -290,17 +292,17 @@ begin
     s_Buttons(9) <= Button_9_i;
     s_Buttons(10) <= Button_RESET_i;
     s_Buttons(11) <= Button_SET_i;
-	
-	--When button gets pushed s_cnt tells us which display is going to be set
+    
+    --When button gets pushed s_cnt tells us which display is going to be set
     --If s_cnt =1 => First display will be set, s_cnt=2 => second display is going to be set
     if (rising_edge(Button_0_i) or rising_edge(Button_1_i)or rising_edge(Button_2_i)or rising_edge(Button_3_i)or rising_edge(Button_4_i)or rising_edge(Button_5_i)or rising_edge(Button_6_i)or rising_edge(Button_7_i)or rising_edge(Button_8_i)or rising_edge(Button_9_i)) then
         if s_cnt<4 then
         s_cnt <=s_cnt+1;
         end if;
     end if;
-	--Button SET is used for PASSWORD CHANGE
+    --Button SET is used for PASSWORD CHANGE
     if(rising_edge(Button_SET_i)) then
-			--if password is undefined. Password is set from current values on display
+            --if password is undefined. Password is set from current values on display
             if (s_internal_Passcode_1 ="UUUU") then
              
                 s_internal_Passcode_1 <= s_internal_Display_1;
@@ -309,7 +311,7 @@ begin
                 s_internal_Passcode_4 <= s_internal_Display_4;
                 s_set_disp<='1';
             else
-			 --Password is already set on some value. Check if password = display value. If yes display gets cleared and we can set new password
+             --Password is already set on some value. Check if password = display value. If yes display gets cleared and we can set new password
             --s_set_password is used to identify state when we are setting new password.
             if (s_internal_Display_1 = s_internal_Passcode_1 and s_internal_Display_2 = s_internal_Passcode_2 and s_internal_Display_3 = s_internal_Passcode_3 and s_internal_Display_4 = s_internal_Passcode_4) then
                 --Vynulování displaye před nastavením nového hesla
@@ -324,7 +326,7 @@ begin
                 --nastavení nového hesla
                 s_set_password<=true;
             else
-			--if s_set_password is active we set password on new value from current value on display
+            --if s_set_password is active we set password on new value from current value on display
             if (s_set_password=true) then
                
                 s_internal_Passcode_1 <= s_internal_Display_1;
@@ -338,12 +340,12 @@ begin
             end if;
             end if;
             end if;
-	--RESET of display position counter   	
+    --RESET of display position counter     
     if(s_reset_cnt='1') then
     s_cnt<=0;
     s_reset_cnt<='0';
     end if;
-	--RESET display
+    --RESET display
     if(s_reset_disp='1') then
         s_internal2_Display_1<="0000";
         s_internal2_Display_2<="0000";
@@ -359,25 +361,25 @@ begin
         s_internal2_Passcode_4 <= s_internal2_Display_4;
     s_set_disp<='0';
     end if; 
-	
-	--Case for setting values on displays. It uses s_cnt to identify which display is going to be set
-	
+    
+    --Case for setting values on displays. It uses s_cnt to identify which display is going to be set
+    
     case s_Buttons is
         when "000000000001" =>  --0, Bylo stisknuto tlačítko 0
             case s_cnt is
-                when 1 =>	
+                when 1 =>   
                    -- Display_1<="0000";
                     s_internal_Display_1<="0000";
                     s_s_internal2_Display_1<="0000";
-                when 2 =>	
+                when 2 =>   
                    -- Display_2<="0000";
                     s_internal_Display_2<="0000";
                     s_internal2_Display_2<="0000";
-                when 3 =>	
+                when 3 =>   
                    -- Display_3<="0000";
                     s_internal_Display_3<="0000";
                     s_internal2_Display_3<="0000";
-                when 4 =>	
+                when 4 =>   
                    -- Display_4<="0000";
                     s_internal_Display_4<="0000";
                     s_internal2_Display_4<="0000";
@@ -577,16 +579,16 @@ begin
         when others =>   
         
     end case;
-	--counter of time from first button press
+    --counter of time from first button press
     if (rising_edge(clk) and s_cnt>0) then
-		s_display_time <=s_display_time+10;	--every 10ms 
+        s_display_time <=s_display_time+10; --every 10ms 
     end if;
-	
+    
     if(s_cnt=0) then
         display_time <=0;
     end if;
-	--Resets display after predefined time from first press of button. 
-	--for purpose of simulation we set reset after 500ms, thats why s_display_time>500; In real use we would have to use something around 5 seconds (s_display_time = 5000ms)
+    --Resets display after predefined time from first press of button. 
+    --for purpose of simulation we set reset after 500ms, thats why s_display_time>500; In real use we would have to use something around 5 seconds (s_display_time = 5000ms)
     if(s_display_time>500) then
        -- Display_1<="0000";
        -- Display_2<="0000";
@@ -603,6 +605,7 @@ begin
 ```
 
 ### Porty `top` modulu
+[Link `top`](https://github.com/Krakenuz/Digital-electronics-1-Project/blob/main/Door%20lock%20system/Door%20lock%20system.srcs/sources_1/new/top.vhd)
 - Každý sedmisegmentový displej je připojen na vlastní pmod konektor. Tlačítka a relé jsou připojeny přes univerzální input/output piny (původně určené pro Arduino shield). Je zde také přiveden zdroj hodin, pro vynulování displejů v display_control, viz. výše.
 ```vhdl
 architecture Behavioral of top is
@@ -657,20 +660,25 @@ begin
 end Behavioral;
 ```
 
+[Link na vygenerovaný bitstream](https://github.com/Krakenuz/Digital-electronics-1-Project/blob/main/Door%20lock%20system/Door%20lock%20system.runs/impl_1/top.bit)
+
 ## Screenshoty ze simulací
 ### Simulace display_control
+[Link `tb_display_control`](https://github.com/Krakenuz/Digital-electronics-1-Project/blob/main/Door%20lock%20system/Door%20lock%20system.srcs/sim_1/new/tb_display_control.vhd)
 
-![screenshot](Images/simulace-display_control.png)
+![screenshot](Images/simulace-display_control.PNG)
 - Na začátku simulace je vidět, že po prvním nastavení všech 4 čísel není v testbenchy simulováno stisknutí tlačítka SET, což názorně ukazuje, že bez tohoto potvrzení není možné heslo nastavit. Následným resetováním se hodnoty na všech displejích změní na 0. Další sekvencí 4 stisknutí tlačítek a následným povrzením se údaje z displejů uloží a tím je nastaveno heslo. Po opětovném zadání tohoto hesla a potvrzením tlačítkem SET se Displej vynuluje a kód je nyní v režimu editace hesla, kdy následné potvrzení tlačítkem SET zobrazené heslo na displeji uloží a přepíše jím to původní. Při zadání špatného hesla, se program do režimu editace hesla nedostane, což je vidět při zadání hodnot "9 6 9 5".
 
 
 ### Simulace relay_control
+[Link `tb_relay_control`](https://github.com/Krakenuz/Digital-electronics-1-Project/blob/main/Door%20lock%20system/Door%20lock%20system.srcs/sim_1/new/tb_relay_control.vhd)
 
 ![screenshot](Images/simulace-relay_control.PNG)
 - Na simulaci relay_control je pouze jednoduše ukázáno, že jakmile dojde na vstup z display_control správná kombinace, jež odpovídá uloženému heslu, modul změní hodnotu proměnné Relay_o na 1, sepne relé a otevře zámek.
 
 
 ### Simulace door_lock_system
+[Link `tb_door_lock_system`](https://github.com/Krakenuz/Digital-electronics-1-Project/blob/main/Door%20lock%20system/Door%20lock%20system.srcs/sim_1/new/tb_door_lock_system.vhd)
 
 ![screenshot](Images/simulace-door_lock_system.PNG)
 - Jak již vyplinulo z popisu modulu výše a schématu, door_lock_system je v podstatě stejně jako top modul obal celé aplikace. Při zadání stisknutím jednotlivých tlačítek je v simulaci patrné, že se na jednotlivé sedmisegmentové displeje odesílá signál odpovídající zobrovanému číslu, zároveň je zde také vidět, že při nastavení hesla a jeho opětovném zadání se vždy otevře zámek a pokud není jinou funkcionalitou (například dalším zadáním, resetováním displeje nebo nastavováním hesla) nijak přerušen, zůstane zámek otevřen až do uplinutí jistého časového intervalu, na jehož konci se opět zamkne a displej vynuluje, viz. konec simulace.
