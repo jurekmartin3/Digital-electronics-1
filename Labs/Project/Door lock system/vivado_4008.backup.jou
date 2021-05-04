@@ -1,0 +1,126 @@
+#-----------------------------------------------------------
+# Vivado v2020.2 (64-bit)
+# SW Build 3064766 on Wed Nov 18 09:12:45 MST 2020
+# IP Build 3064653 on Wed Nov 18 14:17:31 MST 2020
+# Start of session at: Tue Apr 20 15:31:07 2021
+# Process ID: 4008
+# Current directory: C:/Users/PC/Documents/VUT/Digitlnelektronika1/Cvika/Digital-electronics-1-Project/Door lock system
+# Command line: vivado.exe -gui_launcher_event rodinguilauncherevent12228 C:\Users\PC\Documents\VUT\Digitlnelektronika1\Cvika\Digital-electronics-1-Project\Door lock system\Door lock system.xpr
+# Log file: C:/Users/PC/Documents/VUT/Digitlnelektronika1/Cvika/Digital-electronics-1-Project/Door lock system/vivado.log
+# Journal file: C:/Users/PC/Documents/VUT/Digitlnelektronika1/Cvika/Digital-electronics-1-Project/Door lock system\vivado.jou
+#-----------------------------------------------------------
+start_gui
+open_project {C:/Users/PC/Documents/VUT/Digitlnelektronika1/Cvika/Digital-electronics-1-Project/Door lock system/Door lock system.xpr}
+update_compile_order -fileset sources_1
+# Disabling source management mode.  This is to allow the top design properties to be set without GUI intervention.
+set_property source_mgmt_mode None [current_project]
+set_property top tb_display_control [get_filesets sim_1]
+set_property top_lib xil_defaultlib [get_filesets sim_1]
+# Re-enabling previously disabled source management mode.
+set_property source_mgmt_mode All [current_project]
+update_compile_order -fileset sim_1
+launch_simulation
+source tb_display_control.tcl
+# Disabling source management mode.  This is to allow the top design properties to be set without GUI intervention.
+set_property source_mgmt_mode None [current_project]
+set_property top tb_relay_control [get_filesets sim_1]
+set_property top_lib xil_defaultlib [get_filesets sim_1]
+# Re-enabling previously disabled source management mode.
+set_property source_mgmt_mode All [current_project]
+update_compile_order -fileset sim_1
+launch_simulation
+close_sim
+launch_simulation
+source tb_relay_control.tcl
+# Disabling source management mode.  This is to allow the top design properties to be set without GUI intervention.
+set_property source_mgmt_mode None [current_project]
+set_property top tb_display_control [get_filesets sim_1]
+set_property top_lib xil_defaultlib [get_filesets sim_1]
+# Re-enabling previously disabled source management mode.
+set_property source_mgmt_mode All [current_project]
+update_compile_order -fileset sim_1
+close_sim
+launch_simulation
+source tb_display_control.tcl
+close_sim
+launch_simulation
+source tb_display_control.tcl
+close_sim
+launch_simulation
+launch_simulation
+source tb_display_control.tcl
+set_property -name {xsim.simulate.runtime} -value {2000ns} -objects [get_filesets sim_1]
+close_sim
+launch_simulation
+source tb_display_control.tcl
+close_sim
+launch_simulation
+source tb_display_control.tcl
+close_sim
+launch_simulation
+source tb_display_control.tcl
+close_sim
+launch_simulation
+source tb_display_control.tcl
+close_sim
+launch_simulation
+source tb_display_control.tcl
+close_sim
+launch_simulation
+source tb_display_control.tcl
+close_sim
+launch_simulation
+source tb_display_control.tcl
+close_sim
+launch_simulation
+source tb_display_control.tcl
+close_sim
+launch_simulation
+source tb_display_control.tcl
+close_sim
+launch_simulation
+source tb_display_control.tcl
+close_sim
+launch_simulation
+source tb_display_control.tcl
+close_sim
+launch_simulation
+source tb_display_control.tcl
+close_sim
+launch_simulation
+source tb_display_control.tcl
+close_sim
+launch_simulation
+source tb_display_control.tcl
+close_sim
+launch_simulation
+source tb_display_control.tcl
+close_sim
+launch_simulation
+source tb_display_control.tcl
+close_sim
+launch_simulation
+source tb_display_control.tcl
+close_sim
+launch_simulation
+source tb_display_control.tcl
+close_sim
+launch_simulation
+source tb_display_control.tcl
+close_sim
+launch_simulation
+source tb_display_control.tcl
+set_property -name {xsim.simulate.runtime} -value {4000ns} -objects [get_filesets sim_1]
+close_sim
+launch_simulation
+source tb_display_control.tcl
+close_sim
+launch_simulation
+source tb_display_control.tcl
+close_sim
+launch_simulation
+source tb_display_control.tcl
+close_sim
+launch_simulation
+source tb_display_control.tcl
+close_sim

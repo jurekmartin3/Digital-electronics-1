@@ -1,0 +1,77 @@
+#-----------------------------------------------------------
+# Vivado v2020.2 (64-bit)
+# SW Build 3064766 on Wed Nov 18 09:12:45 MST 2020
+# IP Build 3064653 on Wed Nov 18 14:17:31 MST 2020
+# Start of session at: Mon Apr 26 15:50:31 2021
+# Process ID: 8396
+# Current directory: C:/Users/PC/Documents/VUT/Digitlnelektronika1/Cvika/Digital-electronics-1-Project/Door lock system
+# Command line: vivado.exe -gui_launcher_event rodinguilauncherevent12728 C:\Users\PC\Documents\VUT\Digitlnelektronika1\Cvika\Digital-electronics-1-Project\Door lock system\Door lock system.xpr
+# Log file: C:/Users/PC/Documents/VUT/Digitlnelektronika1/Cvika/Digital-electronics-1-Project/Door lock system/vivado.log
+# Journal file: C:/Users/PC/Documents/VUT/Digitlnelektronika1/Cvika/Digital-electronics-1-Project/Door lock system\vivado.jou
+#-----------------------------------------------------------
+start_gui
+open_project {C:/Users/PC/Documents/VUT/Digitlnelektronika1/Cvika/Digital-electronics-1-Project/Door lock system/Door lock system.xpr}
+update_compile_order -fileset sources_1
+launch_simulation
+source tb_display_control.tcl
+close_sim
+launch_simulation
+source tb_display_control.tcl
+close_sim
+launch_simulation
+source tb_display_control.tcl
+close_sim
+launch_simulation
+source tb_display_control.tcl
+close_sim
+launch_simulation
+source tb_display_control.tcl
+close_sim
+launch_simulation
+source tb_display_control.tcl
+close_sim
+launch_simulation
+source tb_display_control.tcl
+close_sim
+launch_simulation
+source tb_display_control.tcl
+close_sim
+launch_simulation
+source tb_display_control.tcl
+close_sim
+launch_simulation
+source tb_display_control.tcl
+close_sim
+launch_simulation
+source tb_display_control.tcl
+close_sim
+launch_simulation
+source tb_display_control.tcl
+close_sim
+launch_simulation
+source tb_display_control.tcl
+close_sim
+launch_simulation
+source tb_display_control.tcl
+close_sim
+launch_simulation
+source tb_display_control.tcl
+close_sim
+launch_simulation
+source tb_display_control.tcl
+close_sim
+launch_simulation
+source tb_display_control.tcl
+close_sim
+launch_simulation
+source tb_display_control.tcl
+close_sim
+launch_simulation
+source tb_display_control.tcl
+close_sim
+launch_simulation
+source tb_display_control.tcl
+close_sim
+launch_simulation
+source tb_display_control.tcl
+close_sim

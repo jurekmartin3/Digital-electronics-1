@@ -1,0 +1,1 @@
+-wto "aab6f50ef0394d9995978929752938d6" --incr --debug "typical" --relax --mt "2" -L "xil_defaultlib" -L "secureip" --snapshot "tb_door_lock_system_behav" "xil_defaultlib.tb_door_lock_system" -log "elaborate.log" 
